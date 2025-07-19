@@ -69,6 +69,14 @@
     margin: 0;
     padding: 0;
     overflow: hidden;
+    min-height: 100vh;
+  }
+
+  html,
+  body,
+  #__next,
+  [data-nextjs-scroll-focus-boundary] {
+    height: 100%;
   }
 }
 
