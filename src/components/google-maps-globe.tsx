@@ -1,22 +1,22 @@
-"use client"
+"use client";
 
-import { useEffect, useRef } from "react"
+import { useEffect, useRef } from "react";
 
 interface GoogleMapsGlobeProps {
-  apiKey: string
+  apiKey: string;
 }
 
 export function GoogleMapsGlobe({ apiKey }: GoogleMapsGlobeProps) {
-  const mapRef = useRef<HTMLDivElement>(null)
+  const mapRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!mapRef.current || !apiKey) return
+    if (!mapRef.current || !apiKey) return;
 
     // Load Google Maps JavaScript API
-    const script = document.createElement("script")
-    script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=geometry&v=3.exp`
-    script.async = true
-    script.defer = true
+    const script = document.createElement("script");
+    script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=geometry&v=3.exp`;
+    script.async = true;
+    script.defer = true;
 
     script.onload = () => {
       if (mapRef.current && window.google) {
@@ -36,27 +36,27 @@ export function GoogleMapsGlobe({ apiKey }: GoogleMapsGlobeProps) {
               stylers: [{ visibility: "off" }],
             },
           ],
-        })
+        });
 
         // Auto-rotate the map
-        let heading = 0
+        let heading = 0;
         const rotateMap = () => {
-          heading += 0.1
-          map.setHeading(heading)
-          requestAnimationFrame(rotateMap)
-        }
-        rotateMap()
+          heading += 0.1;
+          map.setHeading(heading);
+          requestAnimationFrame(rotateMap);
+        };
+        rotateMap();
       }
-    }
+    };
 
-    document.head.appendChild(script)
+    document.head.appendChild(script);
 
     return () => {
       if (document.head.contains(script)) {
-        document.head.removeChild(script)
+        document.head.removeChild(script);
       }
-    }
-  }, [apiKey])
+    };
+  }, [apiKey]);
 
   return (
     <div
@@ -66,5 +66,5 @@ export function GoogleMapsGlobe({ apiKey }: GoogleMapsGlobeProps) {
         filter: "contrast(1.1) saturate(1.2)",
       }}
     />
-  )
+  );
 }
