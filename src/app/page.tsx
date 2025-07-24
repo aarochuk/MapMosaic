@@ -29,22 +29,23 @@ export default function Page() {
     <div className="w-full h-screen relative overflow-hidden bg-gradient-to-br from-purple-400 via-purple-500 to-purple-600">
       {/* Floating Add Content Button */}
       <Button
-        className="absolute bottom-5 right-6 z-50 transition-all duration-200 bg-transparent hover:bg-transparent border-none outline-none focus:outline-none focus:ring-0 shadow-none p-4 w-20 h-20"
+        className="absolute z-50 transition-all duration-200"
         onClick={() => setShowForm(true)}
-        size="icon"
         variant="ghost"
+        size="lg"
+        style={{
+          backgroundColor: "transparent",
+          border: "none",
+          color: "#ffffff",
+          top: "20px",
+          left: "20px",
+        }}
       >
         <Send
-          className="w-36 h-36"
-          style={{
-            color: "#ffffff",
-            width: "40px",
-            height: "40px",
-            position: "relative",
-            bottom: "-20px",
-            right: "-30px",
-          }}
+          className="w-5 h-5"
+          style={{ color: "#ffffff", marginRight: "8px" }}
         />
+        <span style={{ color: "#ffffff" }}>Send Mail</span>
       </Button>
       {/* Modal Overlay for Form */}
       <Modal open={showForm} onClose={() => setShowForm(false)}>
