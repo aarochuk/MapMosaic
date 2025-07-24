@@ -71,7 +71,14 @@ export function Modal({ open, onClose, children }: ModalProps) {
       {open && (
         <motion.div
           ref={backdropRef}
-          className="fixed inset-0 z-[1000] flex items-center justify-center p-4 bg-black/40 dark:bg-black/70 backdrop-blur-sm"
+          className="fixed inset-0 z-[1000] bg-black/40 dark:bg-black/70 backdrop-blur-sm"
+          style={{
+            display: "grid",
+            placeItems: "center",
+            minHeight: "100vh",
+            minWidth: "100vw",
+            padding: "1rem",
+          }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -80,7 +87,13 @@ export function Modal({ open, onClose, children }: ModalProps) {
         >
           <motion.div
             ref={modalRef}
-            className="w-full max-w-lg bg-white dark:bg-zinc-900 rounded-xl shadow-2xl border border-gray-200 dark:border-zinc-700 flex flex-col min-h-[200px] max-h-[90vh] overflow-hidden"
+            className="bg-white dark:bg-zinc-900 rounded-xl shadow-2xl border border-gray-200 dark:border-zinc-700 flex flex-col min-h-[200px] max-h-[90vh] overflow-hidden"
+            style={{
+              justifySelf: "center",
+              alignSelf: "center",
+              width: "300px",
+              maxWidth: "90vw",
+            }}
             initial={{ scale: 0.96, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.96, opacity: 0 }}
