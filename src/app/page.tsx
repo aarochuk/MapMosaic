@@ -45,7 +45,7 @@ export default function Page() {
           className="w-5 h-5"
           style={{ color: "#ffffff", marginRight: "8px" }}
         />
-        <span style={{ color: "#ffffff" }}>Send Mail</span>
+        <span style={{ color: "#ffffff" }}>Send MailMoment</span>
       </Button>
       {/* Modal Overlay for Form */}
       <Modal open={showForm} onClose={() => setShowForm(false)}>

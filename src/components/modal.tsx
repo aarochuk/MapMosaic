@@ -91,8 +91,9 @@ export function Modal({ open, onClose, children }: ModalProps) {
             style={{
               justifySelf: "center",
               alignSelf: "center",
-              width: "300px",
+              width: "auto",
               maxWidth: "90vw",
+              minWidth: "400px",
             }}
             initial={{ scale: 0.96, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
